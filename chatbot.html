@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MindCare Chatbot</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">MindCare</div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+            <a href="awareness.html">Awareness</a>
+            <a href="support.html">Support</a>
+            <a href="wellbeing.html">Well-Being</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="chatbot.html">Chatbot</a>
+
+        </div>
+
+        <a href="#" class="survey-btn">
+            Take Survey
+        </a>
+
+    </nav>
+
+
+    <!-- CHATBOT -->
+
+    <section class="chatbot-page">
+
+        <p class="small-title">
+            MINDCARE CHATBOT
+        </p>
+
+        <h1>
+            Mental Health Awareness Chatbot 🤖
+        </h1>
+
+        <p>
+            Ask questions about mental-health awareness
+            and student well-being.
+        </p>
+
+
+        <!-- CHAT WINDOW -->
+
+        <div class="chatbot-box">
+
+            <div id="chatMessages">
+
+                <div class="chat-message bot-message">
+
+                    <strong>MindCare Bot 🤖</strong>
+
+                    <p>
+                        Hello! 👋
+                        I'm the MindCare awareness chatbot.
+                        You can ask me about mental health,
+                        student well-being, support, sleep,
+                        academic pressure, and our survey.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- INPUT -->
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Type your question..."
+                >
+
+                <button onclick="sendMessage()">
+                    Send
+                </button>
+
+            </div>
+
+
+            <!-- QUICK QUESTIONS -->
+
+            <div class="quick-questions">
+
+                <button onclick="quickQuestion('What is mental health?')">
+                    What is mental health?
+                </button>
+
+                <button onclick="quickQuestion('Why is mental health awareness important?')">
+                    Why is awareness important?
+                </button>
+
+                <button onclick="quickQuestion('What is academic pressure?')">
+                    Academic pressure
+                </button>
+
+                <button onclick="quickQuestion('What can help student well-being?')">
+                    Student well-being
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <a href="index.html" class="back-button">
+            ← Back to Home
+        </a>
+
+    </section>
+
+
+    <!-- CHATBOT JAVASCRIPT -->
+
+    <script>
+
+        function sendMessage() {
+
+            const input = document.getElementById("userInput");
+
+            const message = input.value.trim();
+
+            if (message === "") {
+                return;
+            }
+
+            addMessage(message, "user");
+
+            const answer = getBotResponse(message);
+
+            setTimeout(function() {
+
+                addMessage(answer, "bot");
+
+            }, 400);
+
+            input.value = "";
+
+        }
+
+
+        function quickQuestion(question) {
+
+            document.getElementById("userInput").value = question;
+
+            sendMessage();
+
+        }
+
+
+        function addMessage(message, type) {
+
+            const chatMessages =
+                document.getElementById("chatMessages");
+
+
+            const messageDiv =
+                document.createElement("div");
+
+
+            messageDiv.classList.add("chat-message");
+
+
+            if (type === "user") {
+
+                messageDiv.classList.add("user-message");
+
+                messageDiv.innerHTML =
+                    "<strong>You</strong><p>"
+                    + message +
+                    "</p>";
+
+            }
+
+            else {
+
+                messageDiv.classList.add("bot-message");
+
+                messageDiv.innerHTML =
+                    "<strong>MindCare Bot 🤖</strong><p>"
+                    + message +
+                    "</p>";
+
+            }
+
+
+            chatMessages.appendChild(messageDiv);
+
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+
+        }
+
+
+        function getBotResponse(message) {
+
+            const text =
+                message.toLowerCase();
+
+
+            /*
+            =========================================
+            MENTAL HEALTH
+            =========================================
+            */
+
+            if (
+                text.includes("what is mental health") ||
+                text.includes("meaning of mental health") ||
+                text === "mental health"
+            ) {
+
+                return `
+                Mental health relates to emotional,
+                psychological, and social well-being.
+                It can influence how people think,
+                feel, communicate, and respond to
+                everyday life.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            AWARENESS
+            =========================================
+            */
+
+            if (
+                text.includes("awareness") ||
+                text.includes("why is mental health important")
+            ) {
+
+                return `
+                Mental-health awareness can help
+                students understand well-being,
+                reduce misunderstanding, and encourage
+                supportive communication.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            STUDENTS
+            =========================================
+            */
+
+            if (
+                text.includes("student") &&
+                (
+                    text.includes("mental") ||
+                    text.includes("well-being") ||
+                    text.includes("wellbeing")
+                )
+            ) {
+
+                return `
+                Student well-being can be influenced by
+                different parts of everyday life, including
+                academic pressure, sleep, screen time,
+                physical activity, emotional experiences,
+                and social support.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            ACADEMIC PRESSURE
+            =========================================
+            */
+
+            if (
+                text.includes("academic pressure") ||
+                text.includes("study pressure") ||
+                text.includes("exam pressure")
+            ) {
+
+                return `
+                Academic pressure can be connected with
+                study responsibilities, examinations,
+                assignments, expectations, and other
+                academic demands.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            SLEEP
+            =========================================
+            */
+
+            if (
+                text.includes("sleep") ||
+                text.includes("sleep duration")
+            ) {
+
+                return `
+                Sleep is one of the lifestyle factors
+                included in our student well-being survey.
+                The survey collected information about
+                students' sleep duration.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            SCREEN TIME
+            =========================================
+            */
+
+            if (
+                text.includes("screen time") ||
+                text.includes("mobile") ||
+                text.includes("phone")
+            ) {
+
+                return `
+                Screen time was included in our survey
+                as one of the lifestyle factors related
+                to student well-being.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            PHYSICAL ACTIVITY
+            =========================================
+            */
+
+            if (
+                text.includes("exercise") ||
+                text.includes("physical activity")
+            ) {
+
+                return `
+                Physical activity and exercise were included
+                in our survey as lifestyle factors related
+                to student well-being.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            SUPPORT
+            =========================================
+            */
+
+            if (
+                text.includes("support") ||
+                text.includes("who can i talk")
+            ) {
+
+                return `
+                Students can consider talking with someone
+                they trust, such as a friend, family member,
+                teacher, mentor, counsellor, or another
+                appropriate support person.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            SURVEY
+            =========================================
+            */
+
+            if (
+                text.includes("survey") ||
+                text.includes("responses") ||
+                text.includes("respondents")
+            ) {
+
+                return `
+                Our Mental Health Awareness & Student
+                Well-Being Survey contains 22 questions
+                and has 74 collected responses.
+                You can view the survey analysis from
+                the Analysis page.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            GRAPH / DASHBOARD
+            =========================================
+            */
+
+            if (
+                text.includes("dashboard") ||
+                text.includes("graph") ||
+                text.includes("analysis")
+            ) {
+
+                return `
+                Our dashboard presents survey results
+                using graphs and charts. It includes
+                areas such as age group, year of study,
+                awareness, academic pressure, sleep,
+                screen time, physical activity, and
+                other well-being factors.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            HELLO
+            =========================================
+            */
+
+            if (
+                text.includes("hello") ||
+                text.includes("hi") ||
+                text.includes("hey")
+            ) {
+
+                return `
+                Hello! 👋
+                How can I help you learn about mental
+                health awareness and student well-being?
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            THANK YOU
+            =========================================
+            */
+
+            if (
+                text.includes("thank")
+            ) {
+
+                return `
+                You're welcome! 😊
+                I'm here to provide information about
+                our project and survey.
+                `;
+
+            }
+
+
+            /*
+            =========================================
+            DEFAULT ANSWER
+            =========================================
+            */
+
+            return `
+            I can help with questions about mental-health
+            awareness, student well-being, academic pressure,
+            sleep, screen time, physical activity, support,
+            and our survey.
+
+            Try asking:
+            "What is mental health?"
+            `;
+
+        }
+
+
+        /*
+        =========================================
+        PRESS ENTER TO SEND
+        =========================================
+        */
+
+        document
+            .getElementById("userInput")
+            .addEventListener("keypress", function(event) {
+
+                if (event.key === "Enter") {
+
+                    sendMessage();
+
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>

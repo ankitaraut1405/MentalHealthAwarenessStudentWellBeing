@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Survey Analysis | MindCare</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">MindCare</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="awareness.html">Awareness</a>
+            <a href="support.html">Support</a>
+            <a href="wellbeing.html">Well-Being</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="chatbot.html">Chatbot</a>
+        </div>
+
+        <a href="#" class="survey-btn">
+            Take Survey
+        </a>
+
+    </nav>
+
+
+    <!-- DASHBOARD HEADER -->
+
+    <section class="dashboard-page">
+
+        <div class="dashboard-title">
+
+            <p class="small-title">
+                SURVEY DATA ANALYSIS
+            </p>
+
+            <h1>
+                Mental Health Awareness &
+                Student Well-Being
+            </h1>
+
+            <p>
+                Analysis of responses collected through the
+                Mental Health Awareness & Student Well-Being Survey.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="dashboard-stats">
+
+            <div class="stat-box">
+                <strong>74</strong>
+                <span>Responses</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>22</strong>
+                <span>Questions</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>55</strong>
+                <span>Need More Awareness</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>45</strong>
+                <span>Would Talk to Someone</span>
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 1 -->
+
+        <div class="dashboard-section-title">
+
+            <p>STUDENT PROFILE</p>
+
+            <h2>Who participated in the survey?</h2>
+
+        </div>
+
+
+        <div class="chart-grid">
+
+            <!-- AGE -->
+
+            <div class="chart-card">
+
+                <h3>Age Group</h3>
+
+                <canvas id="ageChart"></canvas>
+
+            </div>
+
+
+            <!-- YEAR -->
+
+            <div class="chart-card">
+
+                <h3>Year of Study</h3>
+
+                <canvas id="yearChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 2 -->
+
+        <div class="dashboard-section-title">
+
+            <p>MENTAL HEALTH AWARENESS</p>
+
+            <h2>Awareness and understanding</h2>
+
+        </div>
+
+
+        <div class="chart-grid">
+
+            <!-- IMPORTANCE -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Mental Health vs Physical Health
+                </h3>
+
+                <canvas id="importanceChart"></canvas>
+
+            </div>
+
+
+            <!-- KNOWLEDGE -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Can Anyone Experience Mental-Health Difficulties?
+                </h3>
+
+                <canvas id="experienceChart"></canvas>
+
+            </div>
+
+
+            <!-- HELP -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Know Where to Get Help
+                </h3>
+
+                <canvas id="helpChart"></canvas>
+
+            </div>
+
+
+            <!-- AWARENESS NEED -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Need for More Mental-Health Awareness
+                </h3>
+
+                <canvas id="awarenessChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 3 -->
+
+        <div class="dashboard-section-title">
+
+            <p>STUDENT WELL-BEING</p>
+
+            <h2>Daily experiences and well-being factors</h2>
+
+        </div>
+
+
+        <div class="chart-grid">
+
+            <!-- OVERWHELMED -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Feeling Overwhelmed
+                </h3>
+
+                <canvas id="overwhelmedChart"></canvas>
+
+            </div>
+
+
+            <!-- EMOTIONAL TIRED -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Feeling Emotionally Tired
+                </h3>
+
+                <canvas id="tiredChart"></canvas>
+
+            </div>
+
+
+            <!-- SUPPORT -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Feeling Supported
+                </h3>
+
+                <canvas id="supportChart"></canvas>
+
+            </div>
+
+
+            <!-- ACADEMIC -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Academic Pressure
+                </h3>
+
+                <canvas id="academicChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION 4 -->
+
+        <div class="dashboard-section-title">
+
+            <p>LIFESTYLE</p>
+
+            <h2>Sleep, screen time and physical activity</h2>
+
+        </div>
+
+
+        <div class="chart-grid">
+
+            <!-- SLEEP -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Sleep Duration
+                </h3>
+
+                <canvas id="sleepChart"></canvas>
+
+            </div>
+
+
+            <!-- SCREEN -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Daily Screen Time
+                </h3>
+
+                <canvas id="screenChart"></canvas>
+
+            </div>
+
+
+            <!-- EXERCISE -->
+
+            <div class="chart-card">
+
+                <h3>
+                    Physical Activity
+                </h3>
+
+                <canvas id="exerciseChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- KEY FINDINGS -->
+
+        <div class="dashboard-section-title">
+
+            <p>PROJECT FINDINGS</p>
+
+            <h2>Key Findings</h2>
+
+        </div>
+
+
+        <div class="findings-grid">
+
+            <div class="finding-card">
+
+                <div class="finding-number">
+                    55
+                </div>
+
+                <h3>
+                    Need for awareness
+                </h3>
+
+                <p>
+                    55 out of 74 respondents said students
+                    need more mental-health awareness.
+                </p>
+
+            </div>
+
+
+            <div class="finding-card">
+
+                <div class="finding-number">
+                    45
+                </div>
+
+                <h3>
+                    Willing to talk
+                </h3>
+
+                <p>
+                    45 respondents said they would talk to
+                    someone when emotionally upset or stressed.
+                </p>
+
+            </div>
+
+
+            <div class="finding-card">
+
+                <div class="finding-number">
+                    42
+                </div>
+
+                <h3>
+                    Know where to get help
+                </h3>
+
+                <p>
+                    42 respondents said they know where a
+                    student can get help.
+                </p>
+
+            </div>
+
+
+            <div class="finding-card">
+
+                <div class="finding-number">
+                    32
+                </div>
+
+                <h3>
+                    Physical activity
+                </h3>
+
+                <p>
+                    32 respondents reported that they never
+                    participate in physical activity or exercise.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMPORTANT NOTE -->
+
+        <div class="dashboard-note">
+
+            <h3>Research Note</h3>
+
+            <p>
+                These results describe the responses collected
+                through this survey. They show patterns in the
+                collected data and should not be interpreted as
+                a diagnosis or as proof of cause and effect.
+            </p>
+
+        </div>
+
+
+        <a href="index.html" class="back-button">
+            ← Back to Home
+        </a>
+
+    </section>
+
+
+    <!-- CHART JAVASCRIPT -->
+
+    <script>
+
+        /*
+        ==========================================
+        REAL SURVEY DATA
+        74 RESPONSES
+        ==========================================
+        */
+
+
+        // AGE GROUP
+
+        new Chart(document.getElementById("ageChart"), {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+                    "17 - 18",
+                    "19 - 21",
+                    "22 - 24",
+                    "25 - 27"
+                ],
+
+                datasets: [{
+
+                    data: [
+                        11,
+                        39,
+                        21,
+                        3
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+
+            }
+
+        });
+
+
+        // YEAR OF STUDY
+
+        new Chart(document.getElementById("yearChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "First Year",
+                    "Second Year",
+                    "Third Year",
+                    "Other"
+                ],
+
+                datasets: [{
+
+                    label: "Students",
+
+                    data: [
+                        3,
+                        21,
+                        30,
+                        20
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // MENTAL VS PHYSICAL HEALTH
+
+        new Chart(document.getElementById("importanceChart"), {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+                    "Yes",
+                    "No",
+                    "Not sure"
+                ],
+
+                datasets: [{
+
+                    data: [
+                        52,
+                        16,
+                        6
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+
+            }
+
+        });
+
+
+        // ANYONE CAN EXPERIENCE
+
+        new Chart(document.getElementById("experienceChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Yes",
+                    "No",
+                    "Not sure"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        46,
+                        16,
+                        12
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // KNOW WHERE TO GET HELP
+
+        new Chart(document.getElementById("helpChart"), {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+                    "Yes",
+                    "No",
+                    "Not sure"
+                ],
+
+                datasets: [{
+
+                    data: [
+                        42,
+                        22,
+                        10
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+                    legend: {
+                        position: "bottom"
+                    }
+                }
+
+            }
+
+        });
+
+
+        // NEED MORE AWARENESS
+
+        new Chart(document.getElementById("awarenessChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Yes",
+                    "No",
+                    "Not sure"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        55,
+                        12,
+                        7
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // OVERWHELMED
+
+        new Chart(document.getElementById("overwhelmedChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        7,
+                        9,
+                        15,
+                        19,
+                        24
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // EMOTIONALLY TIRED
+
+        new Chart(document.getElementById("tiredChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        9,
+                        8,
+                        19,
+                        17,
+                        21
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // SOCIAL SUPPORT
+
+        new Chart(document.getElementById("supportChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        14,
+                        7,
+                        18,
+                        15,
+                        20
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // ACADEMIC PRESSURE
+
+        new Chart(document.getElementById("academicChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ],
+
+                datasets: [{
+
+                    label: "Responses",
+
+                    data: [
+                        12,
+                        5,
+                        15,
+                        15,
+                        27
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                scales: {
+
+                    y: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // SLEEP
+
+        new Chart(document.getElementById("sleepChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Less than 5 hours",
+                    "5–6 hours",
+                    "6–7 hours",
+                    "7–8 hours",
+                    "More than 8 hours"
+                ],
+
+                datasets: [{
+
+                    label: "Students",
+
+                    data: [
+                        7,
+                        28,
+                        27,
+                        10,
+                        2
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                indexAxis: "y",
+
+                responsive: true,
+
+                scales: {
+
+                    x: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // SCREEN TIME
+
+        new Chart(document.getElementById("screenChart"), {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Less than 2 hours",
+                    "2–4 hours",
+                    "4–6 hours",
+                    "6–8 hours",
+                    "More than 8 hours"
+                ],
+
+                datasets: [{
+
+                    label: "Students",
+
+                    data: [
+                        13,
+                        17,
+                        34,
+                        7,
+                        3
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                indexAxis: "y",
+
+                responsive: true,
+
+                scales: {
+
+                    x: {
+                        beginAtZero: true
+                    }
+
+                }
+
+            }
+
+        });
+
+
+        // PHYSICAL ACTIVITY
+
+        new Chart(document.getElementById("exerciseChart"), {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+                    "Never",
+                    "Rarely",
+                    "1–2 days/week",
+                    "3–4 days/week",
+                    "5+ days/week"
+                ],
+
+                datasets: [{
+
+                    data: [
+                        32,
+                        24,
+                        11,
+                        4,
+                        3
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+
+                    legend: {
+                        position: "bottom"
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
